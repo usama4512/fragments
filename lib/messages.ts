@@ -1,4 +1,5 @@
 import { FragmentSchema } from './schema'
+import { ConversationSchema } from './conversation-schema'
 import { ExecutionResult } from './types'
 import { DeepPartial } from 'ai'
 
@@ -21,6 +22,7 @@ export type Message = {
   role: 'assistant' | 'user'
   content: Array<MessageText | MessageCode | MessageImage>
   object?: DeepPartial<FragmentSchema>
+  conversation?: DeepPartial<ConversationSchema>
   result?: ExecutionResult
 }
 
