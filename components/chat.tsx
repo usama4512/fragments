@@ -2,7 +2,7 @@ import { Message } from '@/lib/messages'
 import { FragmentSchema } from '@/lib/schema'
 import { ExecutionResult } from '@/lib/types'
 import { DeepPartial } from 'ai'
-import { LoaderIcon, Terminal } from 'lucide-react'
+import { LoaderIcon, Terminal, MessageSquare } from 'lucide-react'
 import { useEffect } from 'react'
 
 export function Chat({
@@ -68,6 +68,21 @@ export function Chat({
                 </span>
                 <span className="font-sans text-sm text-muted-foreground">
                   Click to see fragment
+                </span>
+              </div>
+            </div>
+          )}
+          {message.conversation && message.role === 'assistant' && (
+            <div className="py-2 pl-2 w-full md:w-max flex items-center border rounded-xl select-none">
+              <div className="rounded-[0.5rem] w-10 h-10 bg-black/5 dark:bg-white/5 self-stretch flex items-center justify-center">
+                <MessageSquare strokeWidth={2} className="text-[#4E87F8]" />
+              </div>
+              <div className="pl-2 pr-4 flex flex-col">
+                <span className="font-bold font-sans text-sm text-primary">
+                  Conversation
+                </span>
+                <span className="font-sans text-sm text-muted-foreground">
+                  Simple chat response
                 </span>
               </div>
             </div>
